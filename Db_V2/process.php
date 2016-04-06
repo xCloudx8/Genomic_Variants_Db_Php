@@ -2,7 +2,7 @@
   $servername = "localhost";
   $username = "root";
   $password = "mysql";
-  $dbname = "personal_genomics";
+  $dbname = "genomics";
 
   // Create connection
   $conn = mysqli_connect($servername, $username, $password, $dbname);
