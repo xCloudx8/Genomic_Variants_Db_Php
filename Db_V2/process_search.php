@@ -31,7 +31,7 @@
           $db_user = 'root';
           $db_pwd = 'mysql';
 
-          $database = 'personal_genomics';
+          $database = 'genomics';
           $table = 'pg_data';
 
           if (!mysql_connect($db_host, $db_user, $db_pwd))
