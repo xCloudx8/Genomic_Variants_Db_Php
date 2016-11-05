@@ -81,6 +81,16 @@
             <input class="mdl-textfield__input" type="text" name="pheno" />
             <label class="mdl-textfield__label" for="sample3">Search for Phenotype term</label>
           </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <select name="owner">
+              <?php 
+              $sql = mysqli_query($connection, "SELECT username FROM users");
+              while ($row = $sql->fetch_assoc()){
+              echo "<option value=\"owner1\">" . $row['username'] . "</option>";
+              }
+              ?>
+            </select>
+          </div>
           <br/>
           <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" value="Submit">
       </div>
