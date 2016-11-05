@@ -60,28 +60,13 @@
     <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
       <span class="mdl-layout-title"><h6>PersonalGenomics Database</h6></span>
       <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-        <a class="mdl-navigation__link" href="http://127.0.0.1/Db_V2/index.html">Home</a>
-        <a class="mdl-navigation__link" href="http://127.0.0.1/Db_V2/insert.php">Insert</a>
-        <a class="mdl-navigation__link" href="http://127.0.0.1/Db_V2/search.php">Search</a>
-        <a class="mdl-navigation__link" href="http://127.0.0.1/Db_V2/updates.html">Update</a>
-        <a class="mdl-navigation__link" href="http://127.0.0.1/Db_V2/faq.html">FAQ</a>
-        <a class="mdl-navigation__link" href="http://127.0.0.1/Db_V2/about.html">About</a>
+        <a class="mdl-navigation__link" href="http://157.27.254.179/PgDb/index.html">Home</a>
+        <a class="mdl-navigation__link" href="http://157.27.254.179/PgDb/search.php">Search</a>
+        <a class="mdl-navigation__link" href="http://157.27.254.179/PgDb/updates.html">Update</a>
+        <a class="mdl-navigation__link" href="http://157.27.254.179/PgDb/faq.html">FAQ</a>
+        <a class="mdl-navigation__link" href="http://157.27.254.179/PgDb/about.html">About</a>
       </nav>
     </div>
-
-    <div class="demo-card-wide mdl-card mdl-shadow--2dp" margin-top="2px">
-      <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">How to search</h2>
-      </div>
-      <div class="mdl-card__supporting-text">
-      V 1.0 of DB in material design has been dropped!
-      </div>
-
-      <div class="mdl-card__menu">
-
-      </div>
-    </div>
-
 
     <main class="mdl-layout__content">
       <div class="page-content">
@@ -89,7 +74,7 @@
 
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input class="mdl-textfield__input" type="text" name="pg_id" />
-            <label class="mdl-textfield__label" for="sample3">Search for Pg_id term</label>
+            <label class="mdl-textfield__label" for="sample3">Search for Pg_id</label>
           </div>
           <br/>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

@@ -16,47 +16,35 @@
     <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
       <span class="mdl-layout-title"><h6> Database</h6></span>
       <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-        <a class="mdl-navigation__link" href="http://127.0.0.1/Db_V2/index.html">Home</a>
-        <a class="mdl-navigation__link" href="http://127.0.0.1/Db_V2/insert.php">Insert</a>
-        <a class="mdl-navigation__link" href="http://127.0.0.1/Db_V2/search.php">Search</a>
-        <a class="mdl-navigation__link" href="http://127.0.0.1/Db_V2/updates.html">Update</a>
-        <a class="mdl-navigation__link" href="http://127.0.0.1/Db_V2/faq.html">FAQ</a>
-        <a class="mdl-navigation__link" href="http://127.0.0.1/Db_V2/about.html">About</a>
+        <a class="mdl-navigation__link" href="http://157.27.254.179/PgDb/index.html">Home</a>
+        <a class="mdl-navigation__link" href="http://157.27.254.179/PgDb/search.php">Search</a>
+        <a class="mdl-navigation__link" href="http://157.27.254.179/PgDb/updates.html">Update</a>
+        <a class="mdl-navigation__link" href="http://157.27.254.179/PgDb/faq.html">FAQ</a>
+        <a class="mdl-navigation__link" href="http://157.27.254.179/PgDb/about.html">About</a>
       </nav>
     </div>
     <main class="mdl-layout__content">
       <div class="page-content">
         <?php
-          $db_host = 'localhost';
-          $db_user = 'root';
-          $db_pwd = 'mysql';
+          $conn_string = "host=157.27.254.179 port=5432 dbname=genomes user=daniele password=Cloudtesi8!";
+          $dbconn = pg_connect ($conn_string);
 
-          $database = 'genomics';
-          $table = 'pg_data';
 
-          if (!mysql_connect($db_host, $db_user, $db_pwd))
-              die("Can't connect to database");
-
-          if (!mysql_select_db($database))
-              die("Can't select database");
-
-          $conn = mysqli_connect($db_host, $db_user, $db_pwd, $database);
-
-          $pg_id = mysqli_real_escape_string($conn, $_POST['pg_id']);
-          $pheno = mysqli_real_escape_string($conn, $_POST['pheno']);
+          $pg_id = pg_escape_string($conn, $_POST['pg_id']);
+          $pheno = pg_escape_string($conn, $_POST['pheno']);
 
           // sending query
           if ($pg_id != null){
-            $result = mysql_query("SELECT * FROM {$table} WHERE pg_id = '$pg_id' ");
+            $result = pg_query("SELECT * FROM {$table} WHERE pg_id = '$pg_id' ");
           }
           else{
-            $result = mysql_query("SELECT * FROM {$table} WHERE phenotype = '$pheno' ");
+            $result = pg_query("SELECT * FROM {$table} WHERE phenotype = '$pheno' ");
           }
           if (!$result) {
               die("Query to show fields from table failed");
           }
 
-          $fields_num = mysql_num_fields($result);
+          $fields_num = pg_num_fields($result);
           ?>
           <style>
             .mdl-data-table{
@@ -115,12 +103,12 @@
           // printing table headers
           for($i=0; $i<$fields_num; $i++)
           {
-              $field = mysql_fetch_field($result);
+              $field = pg_fetch_all($result);
               echo "<td>{$field->name}</td>";
           }
           echo "</tr>\n";
           // printing table rows
-          while($row = mysql_fetch_row($result))
+          while($row = pg_fetch_row($result))
           {
               echo "<tr>";
 
@@ -131,7 +119,7 @@
 
               echo "</tr>\n";
           }
-          mysql_free_result($result);
+          pg_free_result($result);
         ?>
       </div>
     </main>
