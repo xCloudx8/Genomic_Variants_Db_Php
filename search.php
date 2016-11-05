@@ -83,8 +83,8 @@
           </div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <select name="owner">
-              <?php 
-              $sql = mysqli_query($connection, "SELECT username FROM users");
+              <?php
+              $sql = pg_query($connection, "SELECT ethnicity FROM project_infos");
               while ($row = $sql->fetch_assoc()){
               echo "<option value=\"owner1\">" . $row['username'] . "</option>";
               }
