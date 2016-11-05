@@ -35,11 +35,11 @@
 
           // sending query
           if ($pg_id != null){
-            $result = pg_query("SELECT * FROM 'project_infos'
+            $result = pg_query("SELECT * FROM project_infos
               #WHERE patient_id = '$pg_id' ");
           }
           else{
-            $result = pg_query("SELECT * FROM 'project_infos' WHERE disease_id = '$pheno' ");
+            $result = pg_query("SELECT * FROM project_infos WHERE disease_id = '$pheno' ");
           }
           if (!$result) {
               die("Query to show fields from table failed");
