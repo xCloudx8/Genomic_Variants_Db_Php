@@ -101,7 +101,7 @@
               $htmltable =  "<table>" . $delim ;
               $counter   = 0 ;
               // putting in lines
-              while( $row = $sqlresult->fetch_assoc()  ){
+              while( $row = $sqlresult->pg_fetch_assoc()  ){
                 if ( $counter===0 ) {
                   // table header
                   $htmltable .=   "<tr>"  . $delim;
@@ -123,7 +123,7 @@
               // return
               return( $htmltable ) ;
             }
-            echo sql_to_html_table( $result, $delim="\n" ) ; 
+            echo sql_to_html_table( $result, $delim="\n" ) ;
 ?>
 
           <table>
