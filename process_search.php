@@ -28,9 +28,10 @@
       <style>
           .mdl-data-table{
             margin-top: 25px;
-            border-spacing: 10px;
+            border-spacing: 3px;
             table-layout: auto;
-            width: 80%;
+            text-align:left;
+            width: 40px;
           }
           table {
             width: 85%;
