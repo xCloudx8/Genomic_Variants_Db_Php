@@ -36,7 +36,7 @@
             }
 
             $sql = "SELECT * FROM project_infos";
-            $result = $conn->query($sql);
+            $result = $conn->pg_send_query($sql);
 
             if ($result->num_rows > 0) {
                 echo "<table><tr><th>ID</th><th>Name</th></tr>";
