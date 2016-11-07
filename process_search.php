@@ -123,7 +123,7 @@
             table {
               width: 85%;
               border-collapse: collapse;
-              margin-top: 25px;
+              margin-top: 30px;
               margin-left: 15px;
             }
 
