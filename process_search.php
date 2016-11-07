@@ -161,7 +161,7 @@
 
                   // $row is array... foreach( .. ) puts every element
                   // of $row to $cell variable
-                  foreach($row as $cell)
+                  foreach($field as $cell)
                       echo "<td>$cell</td>";
 
                   echo "</tr>\n";
