@@ -109,7 +109,7 @@
                           while ($i < pg_num_fields($result))
                           {
                           	$fieldName = pg_field_name($result, $i);
-                          	echo '<td class="mdl-data-table__cell--non-numeric">' . $fieldName . '</td>';
+                          	echo '<td>' . $fieldName . '</td>';
                           	$i = $i + 1;
                           }
                           echo '</tr>';
