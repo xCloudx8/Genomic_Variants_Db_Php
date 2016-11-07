@@ -49,7 +49,10 @@
         $result = pg_query($query);
 
         $i = 0;
-        echo '<html><body><table><tr>';
+        echo '<html>
+                <body>
+                  <table>
+                    <tr>';
         while ($i < pg_num_fields($result))
         {
         	$fieldName = pg_field_name($result, $i);
@@ -76,16 +79,14 @@
         }
         pg_free_result($result);
 
-        echo '</table></body></html>';
+        echo '
+        </table>
+          </body>
+              </html>';
         ?>
 
 
       </div>
     </main>
   </div>
-
-
-
-
-
 </html>
