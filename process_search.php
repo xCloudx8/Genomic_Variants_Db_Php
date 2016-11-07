@@ -32,10 +32,6 @@
             table-layout: auto;
             width: 40px;
           }
-          .mdl-data-table tr {
-            table-layout: auto;
-            width: 40px;
-          }
 
           table {
             width: 85%;
@@ -106,7 +102,7 @@
 
         ?>
 
-          <table class='mdl-data-table'>
+          <table>
               <tr>
                 <th>Family_id</th>
                 <th>Patient_id</th>
