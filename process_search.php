@@ -25,7 +25,55 @@
     </div>
     <main class="mdl-layout__content">
       <div class="page-content">
+      <style>
+          .mdl-data-table{
+            margin-top: 25px;
+            border-spacing: 10px;
+          }
+          table {
+            width: 85%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            margin-left: 15px;
+          }
 
+          table:first-child{
+            border-top: 1px solid grey;
+            border-bottom: 1px solid grey;
+          }
+          table:last-child{
+            border-bottom: 0px solid #e0e0e0;
+          }
+
+          th {
+            background: #e0e0e0;
+            color: #e0e0e0;
+            font-weight: bold;
+          }
+          th:first-child{
+            border-top: 1px solid #e0e0e0;
+          }
+          th:last-child{
+            border-bottom: 0px solid #e0e0e0;
+          }
+          td, th {
+            padding: 5px;
+            text-align: left;
+            border-right: solid 1px #e0e0e0;
+            border-left: solid 1px #e0e0e0;
+          }
+          tr:first-child{
+            border-top: 0px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+          }
+          tr:last-child{
+            border-bottom: 0px solid #e0e0e0;
+          }
+          tr:hover{
+            background: #eeeeee;
+          }
+
+        </style>
         <?php
 
           $host = '157.27.254.179';
