@@ -37,15 +37,6 @@
             margin-top: 25px;
             margin-left: 15px;
           }
-
-          table:first-child{
-            border-top: 1px solid grey;
-            border-bottom: 1px solid grey;
-          }
-          table:last-child{
-            border-bottom: 0px solid #e0e0e0;
-          }
-
           th {
             width: auto;
             background: #e0e0e0;
@@ -109,7 +100,7 @@
 
         ?>
 
-          <table>
+          <table class='mdl-data-table'>
               <tr>
                 <th>Family_id</th>
                 <th>Patient_id</th>
