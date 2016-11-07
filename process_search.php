@@ -121,7 +121,7 @@
               border-spacing: 10px;
             }
             table {
-              width: 85%;
+              width: 100%;
               border-collapse: collapse;
               margin-top: 30px;
               margin-left: 15px;
