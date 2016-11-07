@@ -26,64 +26,24 @@
     <main class="mdl-layout__content">
       <div class="page-content">
         <?php
-        table { width:400px; }
+          $conn = $conn = pg_connect ("host=localhost port=5432 dbname=genomes user=daniele password=Cloudtesi8!") or die("Could not connect");
 
-        $host = '157.27.254.179';
-        $port = '5432';
-        $database = 'genomes';
-        $user = 'daniele';
-        $password = 'Cloudtesi8!';
+          if (!pg_connection_busy($conn)) {
+              pg_send_query($conn, "SELECT * FROM project_infos;");
+          }
 
-        $connectString = 'host=' . $host . ' port=' . $port . ' dbname=' . $database .
-        	' user=' . $user . ' password=' . $password;
-
-
-        $link = pg_connect ($connectString);
-        if (!$link)
-        {
-        	die('Error: Could not connect: ' . pg_last_error());
-        }
-
-
-        $query = 'select * from project_infos';
-
-        $result = pg_query($query);
-
-        $i = 0;
-        echo '<html>
-                <body>
-                  <table>
-                    <tr>';
-        while ($i < pg_num_fields($result))
-        {
-        	$fieldName = pg_field_name($result, $i);
-        	echo '<td>' . $fieldName . '</td>';
-        	$i = $i + 1;
-        }
-        echo '</tr>';
-        $i = 0;
-
-        while ($row = pg_fetch_row($result))
-        {
-        	echo '<tr>';
-        	$count = count($row);
-        	$y = 0;
-        	while ($y < $count)
-        	{
-        		$c_row = current($row);
-        		echo '<td>' . $c_row . '</td>';
-        		next($row);
-        		$y = $y + 1;
-        	}
-        	echo '</tr>';
-        	$i = $i + 1;
-        }
-        pg_free_result($result);
-
-        echo '
-        </table>
-          </body>
-              </html>';
+          $result = pg_get_result($conn);
+          if ($result->num_rows > 0) {
+              echo "<table><tr><th>ID</th><th>Name</th></tr>";
+              // output data of each row
+              while($row = $result->fetch_assoc()) {
+                  echo "<tr><td>".$row["id"]."</td><td>".$row["firstname"]." ".$row["lastname"]."</td></tr>";
+              }
+              echo "</table>";
+          } else {
+              echo "0 results";
+          }
+          $conn->close();
         ?>
 
 
