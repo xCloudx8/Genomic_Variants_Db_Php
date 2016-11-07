@@ -151,7 +151,7 @@
               for($i=0; $i<$fields_num; $i++)
               {
                   $name = pg_query("SELECT * FROM project_infos limit 1 ");
-                  $field = pg_fetch_row($result);
+                  $field = pg_fetch_row($name);
                   echo "<td>{$field->name}</td>";
               }
               echo "</tr>\n";
