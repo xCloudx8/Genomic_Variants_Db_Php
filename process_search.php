@@ -118,15 +118,24 @@
         ?>
 
           <table>
-            <tr>
+              <tr>
+                <th>Family_id</th>
+                <th>Patient_id</th>
+                <th>Father_id</th>
+                <th>Mother_id</th>
+                <th>Arrival_date</th>
+                <th>Project_id</th>
+                <th>Library_type</th>
+                <th>Capture_id</th>
+                <th>Run_id</th>
+                <th>Patient_age</th>
+                <th>Patient_sex</th>
+                <th>Patient_ethnic_group</th>
+                <th>Disease_id</th>
+                <th>Phenotype_notes</th>
+                <th>Notes</th>
+              </tr>
               <?php
-              // printing table headers
-              for($i=0; $i<$fields_num; $i++)
-              {
-                  $field = pg_field_name($result);
-                  echo "<td>$field</td>";
-              }
-              echo "</tr>\n";
               // printing table rows
               while($row = pg_fetch_row($result))
               {
