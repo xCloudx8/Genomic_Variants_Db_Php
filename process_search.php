@@ -32,7 +32,7 @@
             width: 50px;
           }
           table {
-            width: auto;
+            width: 500px;
             border-collapse: collapse;
             margin-top: 25px;
             margin-left: 15px;
@@ -57,11 +57,10 @@
             border-top: 1px solid #e0e0e0;
           }
           th:last-child{
-            width: auto;;
             border-bottom: 0px solid #e0e0e0;
           }
           td, th {
-            width: auto;
+            width: 50px;
             padding: 5px;
             text-align: left;
             border-right: solid 1px #e0e0e0;
