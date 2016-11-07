@@ -81,6 +81,17 @@
             <input class="mdl-textfield__input" type="text" name="pheno" />
             <label class="mdl-textfield__label" for="sample3">Search for Phenotype term</label>
           </div>
+          <div>
+            <select name="ethn">
+              <?php
+              $sql = pg_query($connection, "SELECT patient_ethnic_group FROM project_infos");
+              while ($row = $sql->pg_fetch_assoc()){
+              echo "<option value=\"owner1\">" . $row['username'] . "</option>";
+              }
+              ?>
+            </select>
+          </div>
+          <br/>
           <br/>
           <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" value="Submit">
       </div>
