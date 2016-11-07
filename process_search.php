@@ -152,7 +152,7 @@
               {
                   $name = pg_query("SELECT * FROM project_infos limit 1 ");
                   $field = pg_fetch_row($name);
-                  echo "<td>{$field->name}</td>";
+                  echo "<td>$field</td>";
               }
               echo "</tr>\n";
               // printing table rows
