@@ -50,8 +50,7 @@
           $result = pg_query($query);
 
           $i = 0;
-          echo '<html>
-                  <body >
+          echo '
                     <table class="mdl-data-table mdl-js-data-table" width:70%>
                       <tr>';
                           while ($i < pg_num_fields($result))
@@ -81,9 +80,7 @@
                           pg_free_result($result);
 
                           echo '
-            </table>
-              </body>
-                  </html>';
+                    </table>';
         ?>
 
 
