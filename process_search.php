@@ -127,9 +127,9 @@
          try {
            //first pass just gets the column names
            print "<table> n";
-           $result = $dbconn->query($query);
+           $result = $dbconn->pg_query($query);
            //return only the first row (we only need field names)
-           $row = $result->fetch(PDO::FETCH_ASSOC);
+           $row = $result->pg_fetch(PDO::FETCH_ASSOC);
            print " <tr> n";
            foreach ($row as $field => $value){
             print " <th>$field</th> n";
