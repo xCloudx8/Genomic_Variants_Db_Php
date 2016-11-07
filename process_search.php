@@ -149,7 +149,7 @@
           for($i=0; $i<$fields_num; $i++)
           {
               $field = pg_fetch_row($result,1);
-              echo "<td>$field</td>";
+              echo "<td>($field->name, '{}')</td>";
           }
           echo "</tr>\n";
           // printing table rows
