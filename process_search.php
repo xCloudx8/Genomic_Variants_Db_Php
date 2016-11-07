@@ -148,8 +148,8 @@
           // printing table headers
           for($i=0; $i<$fields_num; $i++)
           {
-              $field = pg_fetch_all_columns($result);
-              echo "<td>{$field->name}</td>";
+              $field = pg_fetch_row($result,1);
+              echo "<td>$field</td>";
           }
           echo "</tr>\n";
           // printing table rows
