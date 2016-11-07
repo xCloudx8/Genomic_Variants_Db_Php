@@ -29,6 +29,7 @@
           .mdl-data-table{
             margin-top: 25px;
             border-spacing: 10px;
+            table-layout: auto;
             width: 80%;
           }
           table {
@@ -100,7 +101,7 @@
 
         ?>
 
-          <table class='mdl-data-table full-width'>
+          <table class='mdl-data-table'>
               <tr>
                 <th>Family_id</th>
                 <th>Patient_id</th>
