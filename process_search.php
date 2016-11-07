@@ -35,10 +35,19 @@
 
           // sending query
           if ($pg_id != null){
+<<<<<<< HEAD
             $query = pg_query("SELECT * FROM project_infos ");
           }
           else{
             $query = pg_query("SELECT * FROM project_infos ");
+=======
+            $result = pg_query("SELECT * FROM project_infos
+              #WHERE patient_id = '$pg_id' ");
+          }
+          else{
+            $result = pg_query("SELECT * FROM project_infos
+              #WHERE disease_id = '$pheno' ");
+>>>>>>> parent of bbf0946... V2.0.1
           }
           if (!$query) {
               die("Query to show fields from table failed");
