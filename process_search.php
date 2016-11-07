@@ -33,6 +33,7 @@
             width: 40px;
           }
 
+
           table {
             width: 85%;
             border-collapse: collapse;
@@ -102,7 +103,7 @@
 
         ?>
 
-          <table>
+          <table class='mdl-data-table'>
               <tr>
                 <th>Family_id</th>
                 <th>Patient_id</th>
