@@ -52,38 +52,38 @@
           $i = 0;
           echo '<html>
                   <body>
-                    <table class="mdl-data-table mdl-js-data-table">
+                    <table class="mdl-data-table mdl-js-data-table" width=500px>
                       <tr>';
-          while ($i < pg_num_fields($result))
-          {
-          	$fieldName = pg_field_name($result, $i);
-          	echo '<td class="mdl-data-table__cell--non-numeric">' . $fieldName . '</td>';
-          	$i = $i + 1;
-          }
-          echo '</tr>';
-          $i = 0;
+                          while ($i < pg_num_fields($result))
+                          {
+                          	$fieldName = pg_field_name($result, $i);
+                          	echo '<td class="mdl-data-table__cell--non-numeric">' . $fieldName . '</td>';
+                          	$i = $i + 1;
+                          }
+                          echo '</tr>';
+                          $i = 0;
 
-          while ($row = pg_fetch_row($result))
-          {
-          	echo '<tr>';
-          	$count = count($row);
-          	$y = 0;
-          	while ($y < $count)
-          	{
-          		$c_row = current($row);
-          		echo '<td>' . $c_row . '</td>';
-          		next($row);
-          		$y = $y + 1;
-          	}
-          	echo '</tr>';
-          	$i = $i + 1;
-          }
-          pg_free_result($result);
+                          while ($row = pg_fetch_row($result))
+                          {
+                          	echo '<tr>';
+                          	$count = count($row);
+                          	$y = 0;
+                          	while ($y < $count)
+                          	{
+                          		$c_row = current($row);
+                          		echo '<td>' . $c_row . '</td>';
+                          		next($row);
+                          		$y = $y + 1;
+                          	}
+                          	echo '</tr>';
+                          	$i = $i + 1;
+                          }
+                          pg_free_result($result);
 
-          echo '
-          </table>
-            </body>
-                </html>';
+                          echo '
+            </table>
+              </body>
+                  </html>';
         ?>
 
 
