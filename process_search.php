@@ -30,9 +30,13 @@
             margin-top: 25px;
             border-spacing: 3px;
             table-layout: auto;
-            text-align:left;
             width: 40px;
           }
+          .mdl-data-table tr {
+            table-layout: auto;
+            width: 40px;
+          }
+
           table {
             width: 85%;
             border-collapse: collapse;
