@@ -29,13 +29,13 @@
 
             $conn = pg_pconnect("user=daniele password=Cloudtesi8! host=157.27.254.179 port=5432 dbname=genomes");
             if (!$conn) {
-              echo "An error occurred.\n";
+              echo "An error occurred in connection.\n";
               exit;
             }
 
-            $result = pg_query($conn, "SELECT author, email FROM authors");
+            $result = pg_query($conn, "SELECT * FROM project_infos");
             if (!$result) {
-              echo "An error occurred.\n";
+              echo "An error occurred in query.\n";
               exit;
             }
 
