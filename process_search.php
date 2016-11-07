@@ -100,7 +100,7 @@
 
         ?>
 
-          <table class='mdl-data-table'>
+          <table class='mdl-data-table full-width'>
               <tr>
                 <th>Family_id</th>
                 <th>Patient_id</th>
