@@ -151,7 +151,7 @@
               for($i=0; $i<$fields_num; $i++)
               {
                   $field = pg_field_name($result);
-                  echo "<td>$field</td>";
+                  echo "<td>$field->name</td>";
               }
               echo "</tr>\n";
               // printing table rows
@@ -161,7 +161,7 @@
 
                   // $row is array... foreach( .. ) puts every element
                   // of $row to $cell variable
-                  foreach($field as $cell)
+                  foreach($row as $cell)
                       echo "<td>$cell</td>";
 
                   echo "</tr>\n";
