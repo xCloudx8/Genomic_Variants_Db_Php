@@ -128,7 +128,7 @@
                   // $row is array... foreach( .. ) puts every element
                   // of $row to $cell variable
                   foreach($row as $cell)
-                      echo "<td>$cell</td>";
+                      echo "<td class="mdl-data-table__cell--non-numeric">$cell</td>";
 
                   echo "</tr>\n";
               }
