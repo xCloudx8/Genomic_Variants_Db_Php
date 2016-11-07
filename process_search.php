@@ -146,11 +146,6 @@
             <tr>
           <?php
           // printing table headers
-          for($i=0; $i<$fields_num; $i++)
-          {
-              $field = pg_fetch_object($result);
-              echo "<td>{$field->name}</td>";
-          }
           echo "</tr>\n";
           // printing table rows
           while($row = pg_fetch_row($result))
