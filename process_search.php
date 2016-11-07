@@ -31,7 +31,7 @@
             border-spacing: 10px;
           }
           table {
-            width: 20%;
+            width: 80%;
             border-collapse: collapse;
             margin-top: 25px;
             margin-left: 15px;
@@ -46,17 +46,20 @@
           }
 
           th {
+            width: auto;
             background: #e0e0e0;
             color: #e0e0e0;
             font-weight: bold;
           }
           th:first-child{
+            width: auto;
             border-top: 1px solid #e0e0e0;
           }
           th:last-child{
             border-bottom: 0px solid #e0e0e0;
           }
           td, th {
+            width: auto;
             padding: 5px;
             text-align: left;
             border-right: solid 1px #e0e0e0;
