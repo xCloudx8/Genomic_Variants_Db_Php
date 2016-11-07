@@ -51,7 +51,7 @@
 
           $i = 0;
           echo '
-                    <table class="mdl-data-table mdl-js-data-table" border=1>
+                    <table class="mdl-data-table mdl-js-data-table" border=1 width=300px>
                       <tr>';
                           while ($i < pg_num_fields($result))
                           {
