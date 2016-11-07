@@ -99,8 +99,8 @@
           }
 
 
-          $pg_id = mysqli_real_escape_string($link, $_POST['pg_id']);
-          $pheno = mysqli_real_escape_string($link, $_POST['pheno']);
+          $pg_id = pg_escape_string($link, $_POST['pg_id']);
+          $pheno = pg_escape_string($link, $_POST['pheno']);
 
           // sending query
           if ($pg_id != null){
@@ -164,15 +164,13 @@
             }
 
           </style>
-
-
           <table>
             <tr>
           <?php
           // printing table headers
           for($i=0; $i<$fields_num; $i++)
           {
-              $field = mysql_fetch_field($result);
+              $field = pg_field_table($result);
               echo "<td>{$field->name}</td>";
           }
           echo "</tr>\n";
