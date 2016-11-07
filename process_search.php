@@ -26,14 +26,10 @@
     <main class="mdl-layout__content">
       <div class="page-content">
         <?php
-            $servername = "157.27.254.179";
-            $port = "5432";
-            $username = "daniele";
-            $password = "Cloudtesi8!";
-            $dbname = "genomes";
+
 
             // Create connection
-            $conn = pg_connect($servername, $port, $username, $password, $dbname);
+            $conn = pg_connect ("host=157.27.254.179 port=5432 dbname=genomes user=daniele password=Cloudtesi8!");
             // Check connection
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
