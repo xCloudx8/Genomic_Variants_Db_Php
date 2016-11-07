@@ -31,7 +31,7 @@
             border-spacing: 10px;
           }
           table {
-            width: 85%;
+            width: 20%;
             border-collapse: collapse;
             margin-top: 25px;
             margin-left: 15px;
