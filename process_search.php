@@ -153,7 +153,7 @@
           }
           echo "</tr>\n";
           // printing table rows
-          while($row = pg_fetch_all($result))
+          while($row = pg_fetch_row($result))
           {
               echo "<tr>";
 
