@@ -150,8 +150,9 @@
               // printing table headers
               for($i=0; $i<$fields_num; $i++)
               {
-                  $field = pg_field_name($result);
-                  echo "<td>$field->name</td>";
+                  $name = pg_query("SELECT * FROM project_infos limit 1 ");
+                  $field = pg_fetch_row($result);
+                  echo "<td>$field</td>";
               }
               echo "</tr>\n";
               // printing table rows
