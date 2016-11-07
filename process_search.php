@@ -129,7 +129,6 @@
           }
           pg_free_result($result);
         ?>
-      </table>
       </div>
     </main>
   </div>
