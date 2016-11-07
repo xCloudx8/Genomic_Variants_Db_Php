@@ -32,7 +32,7 @@
             width: 50px;
           }
           table {
-            width: 500px;
+            width: 20px;
             border-collapse: collapse;
             margin-top: 25px;
             margin-left: 15px;
@@ -47,20 +47,21 @@
           }
 
           th {
-            width: auto;
+            width: 20px;
             background: #e0e0e0;
             color: #e0e0e0;
             font-weight: bold;
           }
           th:first-child{
-            width: auto;
+            width: 20px;
             border-top: 1px solid #e0e0e0;
           }
           th:last-child{
+            width: 20px;
             border-bottom: 0px solid #e0e0e0;
           }
           td, th {
-            width: 50px;
+            width: 20px;
             padding: 5px;
             text-align: left;
             border-right: solid 1px #e0e0e0;
@@ -71,7 +72,7 @@
             border-bottom: 1px solid #e0e0e0;
           }
           tr:last-child{
-            width: auto;
+            width: 20px;
             border-bottom: 0px solid #e0e0e0;
           }
           tr:hover{
@@ -98,42 +99,96 @@
           }
 
 
-          $query = 'select * from project_infos';
+          $pg_id = mysqli_real_escape_string($link, $_POST['pg_id']);
+          $pheno = mysqli_real_escape_string($link, $_POST['pheno']);
 
-          $result = pg_query($query);
+          // sending query
+          if ($pg_id != null){
+            $result = pg_query("SELECT * FROM project_infos  ");
+          }
+          else{
+            $result = pg_query("SELECT * FROM project_infos  ");
+          }
+          if (!$result) {
+              die("Query to show fields from table failed");
+          }
 
-          $i = 0;
-          echo '
-                    <table>
-                      <tr>';
-                          while ($i < pg_num_fields($result))
-                          {
-                          	$fieldName = pg_field_name($result, $i);
-                          	echo '<td>' . $fieldName . '</td>';
-                          	$i = $i + 1;
-                          }
-                          echo '</tr>';
-                          $i = 0;
+          $fields_num = pg_num_fields($result);
+          ?>
+          <style>
+            .mdl-data-table{
+              margin-top: 25px;
+              border-spacing: 10px;
+            }
+            table {
+              width: 85%;
+              border-collapse: collapse;
+              margin-top: 25px;
+              margin-left: 15px;
+            }
 
-                          while ($row = pg_fetch_row($result))
-                          {
-                          	echo '<tr>';
-                          	$count = count($row);
-                          	$y = 0;
-                          	while ($y < $count)
-                          	{
-                          		$c_row = current($row);
-                          		echo '<td>' . $c_row . '</td>';
-                          		next($row);
-                          		$y = $y + 1;
-                          	}
-                          	echo '</tr>';
-                          	$i = $i + 1;
-                          }
-                          pg_free_result($result);
+            table:first-child{
+              border-top: 1px solid grey;
+              border-bottom: 1px solid grey;
+            }
+            table:last-child{
+              border-bottom: 0px solid #e0e0e0;
+            }
 
-                          echo '
-                    </table>';
+            th {
+              background: #e0e0e0;
+              color: #e0e0e0;
+              font-weight: bold;
+            }
+            th:first-child{
+              border-top: 1px solid #e0e0e0;
+            }
+            th:last-child{
+              border-bottom: 0px solid #e0e0e0;
+            }
+            td, th {
+              padding: 5px;
+              text-align: left;
+              border-right: solid 1px #e0e0e0;
+              border-left: solid 1px #e0e0e0;
+            }
+            tr:first-child{
+              border-top: 0px solid #e0e0e0;
+              border-bottom: 1px solid #e0e0e0;
+            }
+            tr:last-child{
+              border-bottom: 0px solid #e0e0e0;
+            }
+            tr:hover{
+              background: #eeeeee;
+            }
+
+          </style>
+
+
+          <table>
+            <tr>
+          <?php
+          // printing table headers
+          for($i=0; $i<$fields_num; $i++)
+          {
+              $field = mysql_fetch_field($result);
+              echo "<td>{$field->name}</td>";
+          }
+          echo "</tr>\n";
+          // printing table rows
+          while($row = pg_fetch_row($result))
+          {
+              echo "<tr>";
+
+              // $row is array... foreach( .. ) puts every element
+              // of $row to $cell variable
+              foreach($row as $cell)
+                  echo "<td>$cell</td>";
+
+              echo "</tr>\n";
+          }
+          pg_free_result($result);
         ?>
 
 
