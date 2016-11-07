@@ -26,6 +26,7 @@
     <main class="mdl-layout__content">
       <div class="page-content">
         <?php
+        table { width:400px; }
 
         $host = '157.27.254.179';
         $port = '5432';
