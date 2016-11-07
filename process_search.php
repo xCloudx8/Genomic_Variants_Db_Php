@@ -26,7 +26,7 @@
     <main class="mdl-layout__content">
       <div class="page-content">
         <?php
-          $conn = $conn = pg_connect ("host=localhost port=5432 dbname=genomes user=daniele password=Cloudtesi8!") or die("Could not connect");
+          $conn = $conn = pg_connect ("host=157.27.254.179 port=5432 dbname=genomes user=daniele password=Cloudtesi8!") or die("Could not connect");
 
           if (!pg_connection_busy($conn)) {
               pg_send_query($conn, "SELECT * FROM project_infos;");
