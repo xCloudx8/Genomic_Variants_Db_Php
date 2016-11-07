@@ -27,28 +27,23 @@
       <div class="page-content">
         <?php
 
-
-            // Create connection
-            $conn = pg_connect ("host=157.27.254.179 port=5432 dbname=genomes user=daniele password=Cloudtesi8!");
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
+            $conn = pg_pconnect("user=daniele password=Cloudtesi8! host=157.27.254.179 port=5432 dbname=genomes");
+            if (!$conn) {
+              echo "An error occurred.\n";
+              exit;
             }
 
-            $sql = "SELECT * FROM project_infos";
-            $result = $conn->pg_get_result($sql);
-
-            if ($result->num_rows > 0) {
-                echo "<table><tr><th>ID</th><th>Name</th></tr>";
-                // output data of each row
-                while($row = $result->fetch_assoc()) {
-                    echo "<tr><td>".$row["id"]."</td><td>".$row["firstname"]." ".$row["lastname"]."</td></tr>";
-                }
-                echo "</table>";
-            } else {
-                echo "0 results";
+            $result = pg_query($conn, "SELECT author, email FROM authors");
+            if (!$result) {
+              echo "An error occurred.\n";
+              exit;
             }
-            $conn->close();
+
+            while ($row = pg_fetch_row($result)) {
+              echo "Author: $row[0]  E-mail: $row[1]";
+              echo "<br />\n";
+            }
+
             ?>
 
 
