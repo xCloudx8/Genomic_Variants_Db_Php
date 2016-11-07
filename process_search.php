@@ -52,12 +52,12 @@
           $i = 0;
           echo '<html>
                   <body>
-                    <table>
+                    <table class="mdl-data-table mdl-js-data-table">
                       <tr>';
           while ($i < pg_num_fields($result))
           {
           	$fieldName = pg_field_name($result, $i);
-          	echo '<td>' . $fieldName . '</td>';
+          	echo '<td class="mdl-data-table__cell--non-numeric">' . $fieldName . '</td>';
           	$i = $i + 1;
           }
           echo '</tr>';
