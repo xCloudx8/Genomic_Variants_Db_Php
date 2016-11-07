@@ -27,24 +27,57 @@
       <div class="page-content">
         <?php
 
-            $conn = pg_pconnect("user=daniele password=Cloudtesi8! host=157.27.254.179 port=5432 dbname=genomes");
-            if (!$conn) {
-              echo "An error occurred in connection.\n";
-              exit;
-            }
+        $host = '157.27.254.179';
+        $port = '5432';
+        $database = 'genomes';
+        $user = 'daniele';
+        $password = 'Cloudtesi8!';
 
-            $result = pg_query($conn, "SELECT * FROM project_infos");
-            if (!$result) {
-              echo "An error occurred in query.\n";
-              exit;
-            }
+        $connectString = 'host=' . $host . ' port=' . $port . ' dbname=' . $database .
+        	' user=' . $user . ' password=' . $password;
 
-            while ($row = pg_fetch_row($result)) {
-              echo "Author: $row[0]  E-mail: $row[1]";
-              echo "<br />\n";
-            }
 
-            ?>
+        $link = pg_connect ($connectString);
+        if (!$link)
+        {
+        	die('Error: Could not connect: ' . pg_last_error());
+        }
+
+
+        $query = 'select * from project_infos';
+
+        $result = pg_query($query);
+
+        $i = 0;
+        echo '<html><body><table><tr>';
+        while ($i < pg_num_fields($result))
+        {
+        	$fieldName = pg_field_name($result, $i);
+        	echo '<td>' . $fieldName . '</td>';
+        	$i = $i + 1;
+        }
+        echo '</tr>';
+        $i = 0;
+
+        while ($row = pg_fetch_row($result))
+        {
+        	echo '<tr>';
+        	$count = count($row);
+        	$y = 0;
+        	while ($y < $count)
+        	{
+        		$c_row = current($row);
+        		echo '<td>' . $c_row . '</td>';
+        		next($row);
+        		$y = $y + 1;
+        	}
+        	echo '</tr>';
+        	$i = $i + 1;
+        }
+        pg_free_result($result);
+
+        echo '</table></body></html>';
+        ?>
 
 
       </div>
