@@ -114,14 +114,15 @@
           }
 
           $fields_num = pg_num_fields($result);
-          ?>
+
+        ?>
           <style>
             .mdl-data-table{
               margin-top: 25px;
               border-spacing: 10px;
             }
             table {
-              width: 100%;
+              width: 90%;
               border-collapse: collapse;
               margin-top: 30px;
               margin-left: 15px;
@@ -142,30 +143,32 @@
             }
 
           </style>
+
           <table>
             <tr>
-          <?php
-          // printing table headers
-          for($i=0; $i<$fields_num; $i++)
-          {
-              $field = pg_fetch_result($result,0,0);
-              echo "<td>$field->name</td>";
-          }
-          echo "</tr>\n";
-          // printing table rows
-          while($row = pg_fetch_row($result))
-          {
-              echo "<tr>";
-
-              // $row is array... foreach( .. ) puts every element
-              // of $row to $cell variable
-              foreach($row as $cell)
-                  echo "<td>$cell</td>";
-
+              <?php
+              // printing table headers
+              for($i=0; $i<$fields_num; $i++)
+              {
+                  $field = pg_fetch_result($result);
+                  echo "<td>$field->name</td>";
+              }
               echo "</tr>\n";
-          }
-          pg_free_result($result);
-        ?>
+              // printing table rows
+              while($row = pg_fetch_row($result))
+              {
+                  echo "<tr>";
+
+                  // $row is array... foreach( .. ) puts every element
+                  // of $row to $cell variable
+                  foreach($row as $cell)
+                      echo "<td>$cell</td>";
+
+                  echo "</tr>\n";
+              }
+              pg_free_result($result);
+            ?>
+          </table>
 
 
       </div>
