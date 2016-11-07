@@ -29,7 +29,7 @@
           .mdl-data-table{
             margin-top: 25px;
             border-spacing: 10px;
-            width: 50px;
+            width: 80%;
           }
           table {
             width: 85%;
