@@ -52,10 +52,11 @@
             font-weight: bold;
           }
           th:first-child{
-            width: auto;
+            width: 20px;
             border-top: 1px solid #e0e0e0;
           }
           th:last-child{
+            width: 20px;
             border-bottom: 0px solid #e0e0e0;
           }
           td, th {
@@ -70,6 +71,7 @@
             border-bottom: 1px solid #e0e0e0;
           }
           tr:last-child{
+            width: 20px;
             border-bottom: 0px solid #e0e0e0;
           }
           tr:hover{
